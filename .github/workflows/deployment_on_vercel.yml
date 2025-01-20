@@ -1,14 +1,14 @@
-name: deploy for test
+name: Vercel Preview Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_TEST }}
 on:
   push:
-    branches:
+    branches-ignore:
       - main
 jobs:
   Deploy-Preview:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install Vercel CLI
